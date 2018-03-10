@@ -2,9 +2,9 @@ import { combineReducers } from 'redux';
 
 import { DATA_AVAILABLE } from '../actions/';
 
-const dataState = { data: [], loading: true };
+const startData = { words: ['hello', 'goodbye'] };
 
-const dataReducer = (action, state = dataState) => {
+const dataReducer = (state = startData, action) => {
   const newData = action.data;
   switch (action.type) {
     case DATA_AVAILABLE:

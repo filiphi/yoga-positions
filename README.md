@@ -1,3 +1,29 @@
+# Readme for this project
+
+## Steps I went through
+1. Set up computer
+2. Install dependencies
+- xcode
+- react native debugger
+- make sure all lint packages are available
+- Avoid installing globally, as this causes issues
+
+## To verify
+- testing setup
+- redux working as expected
+
+## To add
+- flow
+
+## G2K
+### Running debugger
+1. Download react native debugger
+2. Open it on port 19001 `open "rndebugger://set-debugger-loc?host=localhost&port=19001"`
+
+
+### Create React Native App readme below
+
+
 This project was bootstrapped with [Create React Native App](https://github.com/react-community/create-react-native-app).
 
 Below you'll find information about performing common tasks. The most recent version of this guide is available [here](https://github.com/react-community/create-react-native-app/blob/master/react-native-scripts/template/README.md).

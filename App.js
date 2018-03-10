@@ -1,19 +1,11 @@
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { Provider } from 'react-redux';
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+import store from './src/store'; // Import the store
+import Home from './src/views/home'; // Import the component file
 
 export default () => (
-  <View style={styles.container}>
-    <Text>It doesnt.... Open up App.js to start working on your app!</Text>
-    <Text>Changes you make will automatically reload.</Text>
-    <Text>Shake your phone to open the developer menu.</Text>
-  </View>
+  <Provider store={store}>
+    <Home />
+  </Provider>
 );
