@@ -1,21 +1,5 @@
 import React from 'react';
-import { StyleSheet, Button, Text, View } from 'react-native';
-
-import StorybookScreen from 'src/storybook'
-
-export default class App extends React.Component {
-  render() {
-    return (
-      <View style={styles.container}>
-        <Text>It doesnt update.... Open up App.js to start working on your app!</Text>
-        <Text>Changes you make will automatically reload.</Text>
-        <Text>Shake your phone to open the developer menu.</Text>
-        <Button onPress=()=>{console.log('storybook')}>Press here for Storybook</Button>
-      </View>
-
-    );
-  }
-}
+import { StyleSheet, Text, View } from 'react-native';
 
 const styles = StyleSheet.create({
   container: {
@@ -25,3 +9,11 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
 });
+
+export default () => (
+  <View style={styles.container}>
+    <Text>It doesnt.... Open up App.js to start working on your app!</Text>
+    <Text>Changes you make will automatically reload.</Text>
+    <Text>Shake your phone to open the developer menu.</Text>
+  </View>
+);
