@@ -1,6 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View, TouchableHighlight } from 'react-native';
+
+import { scramblePositions } from '../../actions';
 
 const styles = StyleSheet.create({
   container: {
@@ -12,21 +14,33 @@ const styles = StyleSheet.create({
 });
 
 const Home = (data) => {
-  const { words } = data;
-  // const wordsz = ['hello', 'goodbye'];
-  const wordList = words.map(word => (<Text>{word}</Text>));
+  // const { scrambledPositions } = data; // TODO:: Fix this deconstruction
+  console.log(data.data.scrambledPositions);
+  console.log(data.onScrambleYogaPositions);
+
+  const positionList = data.data.scrambledPositions.map((position, i) => (<Text key={position.englishName + '${i}'}>{position.englishName}</Text>));
   return (
     <View style={styles.container}>
-      { wordList }
-      <Text>It doesnt.... Open up App.js to start working on your app!</Text>
-      <Text>Changes you make will automatically reload.</Text>
-      <Text>Shake your phone to open the developer menu.</Text>
+      { positionList }
+      <TouchableHighlight
+        onPress={data.onScrambleYogaPositions}
+      >
+        <Text>Scramble Positions</Text>
+      </TouchableHighlight>
     </View>
   );
 };
 
 const mapStateToProps = state => (
-  { ...state.dataReducer }
+  { data: state.dataReducer }
 );
 
-export default connect(mapStateToProps)(Home);
+const mapDispatchToProps = dispatch => (
+  {
+    onScrambleYogaPositions: () => {
+      scramblePositions(dispatch);
+    },
+  }
+);
+
+export default connect(mapStateToProps, mapDispatchToProps)(Home);

@@ -1,3 +1,9 @@
-export const DATA_AVAILABLE = 'DATA_AVAILABLE';
+import positions from '../data/positions';
+import shuffleArray from '../helpers/shuffleArray';
 
-export default dispatch => (dispatch({ type: DATA_AVAILABLE, data: {} }));
+export const SCRAMBLE_LIST_OF_POSITIONS = 'SCRAMBLE_LIST_OF_POSITIONS';
+
+export const scramblePositions = (dispatch) => {
+  const shuffledPositions = shuffleArray(positions);
+  dispatch({ type: SCRAMBLE_LIST_OF_POSITIONS, positions: shuffledPositions });
+};

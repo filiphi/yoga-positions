@@ -1,14 +1,14 @@
 import { combineReducers } from 'redux';
 
-import { DATA_AVAILABLE } from '../actions/';
+import { SCRAMBLE_LIST_OF_POSITIONS } from '../actions/';
+import positions from '../data/positions';
 
-const startData = { words: ['hello', 'goodbye'] };
+const initialData = { positions, scrambledPositions: positions };
 
-const dataReducer = (state = startData, action) => {
-  const newData = action.data;
+const dataReducer = (state = initialData, action) => {
   switch (action.type) {
-    case DATA_AVAILABLE:
-      return { newData, ...state };
+    case SCRAMBLE_LIST_OF_POSITIONS:
+      return { ...state, scrambledPositions: action.positions };
     default:
       return state;
   }
