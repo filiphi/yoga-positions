@@ -13,34 +13,33 @@ const styles = StyleSheet.create({
   },
 });
 
-const Home = (data) => {
+const Home = ({ positions, onScrambleYogaPositions }) => {
   // const { scrambledPositions } = data; // TODO:: Fix this deconstruction
-  console.log(data.data.scrambledPositions);
-  console.log(data.onScrambleYogaPositions);
+  console.log(positions.scrambledPositions);
+  console.log(onScrambleYogaPositions);
 
-  const positionList = data.data.scrambledPositions.map((position, i) => (<Text key={position.englishName + '${i}'}>{position.englishName}</Text>));
+  const positionList = positions.scrambledPositions.map((position, i) => (
+    <Text key={`${position.englishName}-${i}`}>{position.englishName}</Text>
+  ));
+
   return (
     <View style={styles.container}>
-      { positionList }
-      <TouchableHighlight
-        onPress={data.onScrambleYogaPositions}
-      >
+      {positionList}
+      <TouchableHighlight onPress={onScrambleYogaPositions}>
         <Text>Scramble Positions</Text>
       </TouchableHighlight>
     </View>
   );
 };
 
-const mapStateToProps = state => (
-  { data: state.dataReducer }
-);
+const mapStateToProps = state => ({
+  positions: state.scrambledPositionsReducer,
+});
 
-const mapDispatchToProps = dispatch => (
-  {
-    onScrambleYogaPositions: () => {
-      scramblePositions(dispatch);
-    },
-  }
-);
+const mapDispatchToProps = dispatch => ({
+  onScrambleYogaPositions: () => {
+    scramblePositions(dispatch);
+  },
+});
 
 export default connect(mapStateToProps, mapDispatchToProps)(Home);
