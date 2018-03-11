@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { StyleSheet, Text, View, TouchableHighlight } from 'react-native';
 
@@ -13,13 +14,11 @@ const styles = StyleSheet.create({
   },
 });
 
-const Home = ({ positions, onScrambleYogaPositions }) => {
-  // const { scrambledPositions } = data; // TODO:: Fix this deconstruction
-  console.log(positions.scrambledPositions);
-  console.log(onScrambleYogaPositions);
-
-  const positionList = positions.scrambledPositions.map((position, i) => (
-    <Text key={`${position.englishName}-${i}`}>{position.englishName}</Text>
+const Home = ({ data, onScrambleYogaPositions }) => {
+  console.log(data);
+  const { scrambledPositions } = data;
+  const positionList = scrambledPositions.map(position => (
+    <Text key={`${position.englishName}`}>{position.englishName}</Text>
   ));
 
   return (
@@ -32,8 +31,15 @@ const Home = ({ positions, onScrambleYogaPositions }) => {
   );
 };
 
+Home.propTypes = {
+  data: PropTypes.shape({
+    scrambledPositions: PropTypes.arrayOf(PropTypes.object),
+  }).isRequired,
+  onScrambleYogaPositions: PropTypes.func.isRequired,
+};
+
 const mapStateToProps = state => ({
-  positions: state.scrambledPositionsReducer,
+  data: state.scrambledPositionsReducer,
 });
 
 const mapDispatchToProps = dispatch => ({
