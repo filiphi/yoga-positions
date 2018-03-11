@@ -15,7 +15,6 @@ const styles = StyleSheet.create({
 });
 
 const Home = ({ data, onScrambleYogaPositions }) => {
-  console.log(data);
   const { scrambledPositions } = data;
   const positionList = scrambledPositions.map(position => (
     <Text key={`${position.englishName}`}>{position.englishName}</Text>

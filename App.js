@@ -1,11 +1,15 @@
 import React from 'react';
 import { Provider } from 'react-redux';
+import StorybookUI from './storybook';
 
 import store from './src/store'; // Import the store
-import Home from './src/views/home'; // Import the component file
+import Main from './src/controllers/main'; // Import the component file
 
-export default () => (
+const App = () => (
   <Provider store={store}>
-    <Home />
+    <Main />
   </Provider>
 );
+
+export default App;
+// export default StorybookUI;
