@@ -23,13 +23,22 @@ const styles = StyleSheet.create({
   },
 });
 
-const Header = props => <Text style={styles.headerText}>{props.children}</Text>;
-const LargeText = props => <Text style={styles.largeText}>{props.children}</Text>;
-const NormalText = props => <Text style={styles.normal}>{props.children}</Text>;
-const SmallText = props => <Text style={styles.smallText}>{props.children}</Text>;
+const Header = ({ style = {}, children }) => (
+  <Text style={[styles.headerText, style]}>{children}</Text>
+);
+const LargeText = ({ style = {}, children }) => (
+  <Text style={[styles.largeText, style]}>{children}</Text>
+);
+const NormalText = ({ style = {}, children }) => (
+  <Text style={[styles.normal, style]}>{children}</Text>
+);
+const SmallText = ({ style = {}, children }) => (
+  <Text style={[styles.smallText, style]}>{children}</Text>
+);
 
 const props = {
   children: PropTypes.string.isRequired,
+  style: Text.propTypes.style,
 };
 
 Header.propTypes = props;

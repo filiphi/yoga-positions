@@ -4,12 +4,14 @@ import { storiesOf } from '@storybook/react-native';
 import { action } from '@storybook/addon-actions';
 import { linkTo } from '@storybook/addon-links';
 
-import TextStory from './Text';
-import CenterView from './CenterView';
-import Welcome from './Welcome';
+import TextScreen from './TextScreen';
+import ButtonScreen from './ButtonScreen';
+import StandardView from './StandardView';
 
-storiesOf('Welcome', module).add('to Storybook', () => <Welcome showApp={linkTo('Button')} />);
+storiesOf('Buttons', module)
+  .addDecorator(getStory => <StandardView>{getStory()}</StandardView>)
+  .add('types', () => <ButtonScreen />);
 
 storiesOf('Text', module)
-  .addDecorator(getStory => <CenterView>{getStory()}</CenterView>)
-  .add('with text', () => <TextStory />);
+  .addDecorator(getStory => <StandardView>{getStory()}</StandardView>)
+  .add('types', () => <TextScreen />);

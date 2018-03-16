@@ -2,7 +2,7 @@ import React from 'react';
 import { View } from 'react-native';
 import { Header, LargeText, NormalText, SmallText } from '../../../src/components/text';
 
-const TextStory = () => (
+const TextScreen = () => (
   <View>
     <Header>Header</Header>
     <LargeText>Large</LargeText>
@@ -11,4 +11,4 @@ const TextStory = () => (
   </View>
 );
 
-export { TextStory as default };
+export { TextScreen as default };
