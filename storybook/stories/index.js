@@ -1,4 +1,5 @@
 import React from 'react';
+import { View } from 'react-native';
 
 import { storiesOf } from '@storybook/react-native';
 import { action } from '@storybook/addon-actions';
@@ -18,6 +19,26 @@ storiesOf('YogaPosition', module)
 				sanskritName: 'Kakasana',
 				imageUrl: 'http://www.theyogaposes.com/images/p/yoga-crow-pose.jpg',
 			}}
+    />
+  ))
+  .add('no English', () => (
+    <YogaCard
+      position={{
+				englishName: 'Crow pose',
+				sanskritName: 'Kakasana',
+				imageUrl: 'http://www.theyogaposes.com/images/p/yoga-crow-pose.jpg',
+			}}
+      showEnglishName={false}
+    />
+  ))
+  .add('no Sanskrit card', () => (
+    <YogaCard
+      position={{
+				englishName: 'Crow pose',
+				sanskritName: 'Kakasana',
+				imageUrl: 'http://www.theyogaposes.com/images/p/yoga-crow-pose.jpg',
+			}}
+      showSanskritName={false}
     />
   ));
 

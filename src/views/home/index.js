@@ -1,32 +1,46 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { StyleSheet, Text, View, TouchableHighlight } from 'react-native';
+import { StyleSheet, Text, ScrollView, View, TouchableHighlight, SafeAreaView } from 'react-native';
 
+import Defaults from '../../components/styleDefinitions';
+import YogaPosition from '../../components/yogaPosition';
+import { HeroButton } from '../../components/buttons';
 import { scramblePositions } from '../../actions';
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    margin: 20,
     backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
   },
+  margin: {
+    marginTop: Defaults.STANDARD_MARGIN_LARGE,
+  },
+  scrollView: {},
 });
 
 const Home = ({ data, onScrambleYogaPositions }) => {
   const { scrambledPositions } = data;
-  const positionList = scrambledPositions.map(position => (
-    <Text key={`${position.englishName}`}>{position.englishName}</Text>
-  ));
+  const positionList = scrambledPositions.map((position) => {
+    const showSanskritName = Math.random() >= 0.5;
+    const showEnglishName = Math.random() >= 0.5;
+    return (
+      <YogaPosition
+        showSanskritName={showSanskritName}
+        showEnglishName={showEnglishName}
+        {...position}
+      />
+    );
+  });
 
   return (
-    <View style={styles.container}>
-      {positionList}
-      <TouchableHighlight onPress={onScrambleYogaPositions}>
-        <Text>Scramble Positions</Text>
-      </TouchableHighlight>
-    </View>
+    <SafeAreaView style={styles.container}>
+      <ScrollView style={styles.scrollView}>{positionList}</ScrollView>
+      <HeroButton style={styles.margin} onPress={onScrambleYogaPositions}>
+				Scramble Positions
+      </HeroButton>
+    </SafeAreaView>
   );
 };
 
