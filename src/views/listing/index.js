@@ -10,7 +10,9 @@ import { scramblePositions } from '../../actions';
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    margin: 20,
+    marginLeft: Defaults.STANDARD_MARGIN_LARGE,
+    marginTop: Defaults.STANDARD_MARGIN_LARGE,
+    marginRight: Defaults.STANDARD_MARGIN_LARGE,
     backgroundColor: '#fff',
   },
   margin: {
