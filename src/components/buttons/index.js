@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { TouchableHighlight, Text, View, StyleSheet } from 'react-native';
+import { TouchableHighlight, Text, View, StyleSheet, ViewPropTypes } from 'react-native';
 
 import { NormalText } from '../text';
 import Defaults from '../styleDefinitions';
@@ -47,10 +47,10 @@ const styles = StyleSheet.create({
 const standardProps = {
   children: PropTypes.oneOfType([PropTypes.string, PropTypes.number, PropTypes.element]).isRequired,
   onPress: PropTypes.func.isRequired,
-  viewStyle: View.propTypes.style,
+  viewStyle: ViewPropTypes.style,
   textStyle: Text.propTypes.style,
-  style: View.propTypes.style,
-  childrenStyle: View.propTypes.style,
+  style: ViewPropTypes.style,
+  childrenStyle: ViewPropTypes.style,
 };
 
 const DefaultButton = ({

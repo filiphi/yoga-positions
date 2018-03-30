@@ -22,17 +22,9 @@ const styles = StyleSheet.create({
 
 const Home = ({ data, onScrambleYogaPositions }) => {
   const { scrambledPositions } = data;
-  const positionList = scrambledPositions.map((position) => {
-    const showSanskritName = Math.random() >= 0.5;
-    const showEnglishName = Math.random() >= 0.5;
-    return (
-      <YogaPosition
-        showSanskritName={showSanskritName}
-        showEnglishName={showEnglishName}
-        {...position}
-      />
-    );
-  });
+  const positionList = scrambledPositions.map(position => (
+    <YogaPosition key={position.englishName} showSanskritName={false} {...position} />
+  ));
 
   return (
     <SafeAreaView style={styles.container}>

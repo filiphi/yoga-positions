@@ -9,6 +9,11 @@ import YogaCard from './YogaCardScreen';
 import TextScreen from './TextScreen';
 import ButtonScreen from './ButtonScreen';
 import StandardView from './StandardView';
+import InputScreen from './InputScreen';
+
+storiesOf('Input', module)
+  .addDecorator(getStory => <StandardView>{getStory()}</StandardView>)
+  .add('standard', () => <InputScreen />);
 
 storiesOf('YogaPosition', module)
   .addDecorator(getStory => <StandardView>{getStory()}</StandardView>)
