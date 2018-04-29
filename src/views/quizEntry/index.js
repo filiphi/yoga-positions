@@ -36,10 +36,14 @@ const QuizEntry = ({ toggleLanguage }) => {
     <SafeAreaView style={styles.container}>
       <LargeText style={styles.title}>Which languages do you want to test?</LargeText>
       <QuizContext.Consumer>
-        {theme => (
+        {languages => (
           <View>
-            <SwitchLabel label="English" value={theme.english} onValueChange={toggleEnglish} />
-            <SwitchLabel label="Sanskrit" value={theme.sanskrit} onValueChange={toggleSanskrit} />
+            <SwitchLabel label="English" value={languages.english} onValueChange={toggleEnglish} />
+            <SwitchLabel
+              label="Sanskrit"
+              value={languages.sanskrit}
+              onValueChange={toggleSanskrit}
+            />
           </View>
 				)}
       </QuizContext.Consumer>

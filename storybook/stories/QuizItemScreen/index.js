@@ -1,6 +1,7 @@
 import React from 'react';
 import { View, StyleSheet } from 'react-native';
 
+import positions from '../../../src/data/positions';
 import QuizItemView from '../../../src/views/quizItem';
 import { QuizContext, quizLanguages } from '../../../src/context/quizContext';
 import { HeroButton, SecondaryButton, StopButton } from '../../../src/components/buttons';
@@ -18,7 +19,7 @@ const styles = StyleSheet.create({
 
 const QuizItemScreen = ({ languageSetup }) => (
   <QuizContext.Provider value={languageSetup}>
-    <QuizItemView />
+    <QuizItemView position={positions[0]} />
   </QuizContext.Provider>
 );
 

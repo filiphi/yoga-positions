@@ -23,6 +23,22 @@ storiesOf('QuizItemScreen', module)
 				sanskrit: false,
 			}}
     />
+  ))
+  .add('Test Sanskrit', () => (
+    <QuizItemScreen
+      languageSetup={{
+				english: false,
+				sanskrit: true,
+			}}
+    />
+  ))
+  .add('Test both', () => (
+    <QuizItemScreen
+      languageSetup={{
+				english: true,
+				sanskrit: true,
+			}}
+    />
   ));
 
 storiesOf('QuizEntryScreen', module)

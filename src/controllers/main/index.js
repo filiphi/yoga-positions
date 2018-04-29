@@ -3,7 +3,7 @@ import { TabNavigator } from 'react-navigation';
 
 import Defaults from '../../components/styleDefinitions';
 import Listing from '../../views/listing';
-import Quiz from '../../views/quiz';
+import Quiz from '../quiz';
 
 const routes = {
   Listing: { screen: Listing },
