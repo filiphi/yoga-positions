@@ -10,6 +10,28 @@ import TextScreen from './TextScreen';
 import ButtonScreen from './ButtonScreen';
 import StandardView from './StandardView';
 import InputScreen from './InputScreen';
+import QuizEntryScreen from './QuizEntryScreen';
+import QuizItemScreen from './QuizItemScreen';
+import SwitchScreen from './SwitchScreen';
+
+storiesOf('QuizItemScreen', module)
+  .addDecorator(getStory => <StandardView>{getStory()}</StandardView>)
+  .add('Test English', () => (
+    <QuizItemScreen
+      languageSetup={{
+				english: true,
+				sanskrit: false,
+			}}
+    />
+  ));
+
+storiesOf('QuizEntryScreen', module)
+  .addDecorator(getStory => <StandardView>{getStory()}</StandardView>)
+  .add('standard', () => <QuizEntryScreen />);
+
+storiesOf('SwitchScreen', module)
+  .addDecorator(getStory => <StandardView>{getStory()}</StandardView>)
+  .add('standard', () => <SwitchScreen />);
 
 storiesOf('Input', module)
   .addDecorator(getStory => <StandardView>{getStory()}</StandardView>)
